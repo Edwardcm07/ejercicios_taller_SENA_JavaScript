@@ -5,23 +5,79 @@ anterior suponga que un adulto mayor debe tener una edad igual o superior a 60. 
 ingreso que los valores estén en un rango entre 1 y 120 años. En caso de error deberá notificar y solicitar
 un nuevo valor.*/
 
+//ingreso de datos a la matriz
 var registros = [
-  ["Juan", 16],
-  ["Pedro", 18],
-  ["Maria", 35],
-  ["José", 40],
-  ["Cecilia", 20],
-  ["Arturo", 80],
-  ["Marcos", 65],
-  ["Adolfo", 50],
-  ["Victor", 49],
-  ["Sofia", 70],
+  {
+    nombre: "Arturo",
+    edad: 16,
+  },
+  {
+    nombre: "Marta",
+    edad: 30,
+  },
+  {
+    nombre: "Santiago",
+    edad: 18,
+  },
+  {
+    nombre: "Ximena",
+    edad: 14,
+  },
+  {
+    nombre: "Oscar",
+    edad: 50,
+  },
+  {
+    nombre: "Octavio",
+    edad: 75,
+  },
+  {
+    nombre: "Sofia",
+    edad: 80,
+  },
+  {
+    nombre: "Manuela",
+    edad: 10,
+  },
+  {
+    nombre: "Rafael",
+    edad: 29,
+  },
+  {
+    nombre: "Daniela",
+    edad: 32,
+  },
 ];
 
-var total = 0;
+//mostrar elementos de la matriz
+console.log(registros);
+// mayores de edad
+var mayorEdad = registros.filter((persona) => persona.edad >= 18);
+console.log(mayorEdad.length);
+console.log(mayorEdad);
+//menores de edad
+var menorEdad = registros.filter((persona) => persona.edad <= 18);
+console.log(menorEdad.length);
+console.log(menorEdad);
+//Adultos Mayores
+var adultosMayores = registros.filter((persona) => persona.edad >= 60);
+console.log(adultosMayores.length);
+console.log(adultosMayores);
+//mayor Edad y menor Edad
+var edades = [];
+
 for (var i = 0; i < registros.length; i++) {
-  console.log(registros[i]);
-  for (var j = 0; registros[i].length; j++) {
-    console.log(" " + registros[i][j] + "<br/>");
-  }
+  edades.push(registros[i].edad);
 }
+
+console.log(edades);
+
+var edadMinima = Math.min(...edades);
+var edadMaxima = Math.max(...edades);
+
+console.log(edadMinima);
+console.log(edadMaxima);
+//Promedio de las edades
+var sum = edades.reduce((a, n) => ((a += n), a), 0);
+var promedio = sum / edades.length;
+console.log(promedio);
